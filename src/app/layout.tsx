@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Button, GhostButton } from "@/components/ui/button";
+import { getUsername } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const username = getUsername();
+
   return (
     <html lang="en">
       <body className={`bg-neutral-900 text-white ${inter.className}`}>
@@ -25,14 +28,20 @@ export default function RootLayout({
             <Link href="/">
               <Image src="/logo.svg" alt="Flowee Logo" width={50} height={50} />
             </Link>
-            <div className="space-x-3">
-              <Link href="/signup">
-                <Button>Sign Up</Button>
+            {username ? (
+              <Link href={`/${username}`}>
+                <Button>{username}</Button>
               </Link>
-              <Link href="/signin">
-                <GhostButton>Sign In</GhostButton>
-              </Link>
-            </div>
+            ) : (
+              <div className="space-x-3">
+                <Link href="/signup">
+                  <Button>Sign Up</Button>
+                </Link>
+                <Link href="/signin">
+                  <GhostButton>Sign In</GhostButton>
+                </Link>
+              </div>
+            )}
           </div>
           <hr className="border-neutral-700" />
         </header>

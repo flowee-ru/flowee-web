@@ -9,7 +9,7 @@ export function SignInForm() {
   const [state, formAction] = useFormState(signIn, undefined);
 
   return (
-    <form action={formAction} className="grid gap-4 w-96">
+    <form action={formAction} className="grid gap-4 w-80">
       <div className="grid gap-2 text-start">
         <label htmlFor="username-input" className="font-medium">Username</label>
         <Input

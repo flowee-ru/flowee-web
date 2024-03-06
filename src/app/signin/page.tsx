@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function SignIn() {
   return (
     <main className="grid justify-center text-center py-10 gap-5">
-      <h1 className="text-3xl font-bold">Welcome back to Flowee!</h1>
+      <h1 className="text-3xl font-bold">Welcome back!</h1>
       <SignInForm />
       <div className="grid gap-3">
         <p>Don&apos;t have an account? <Link href="/signup" className="underline">Sign Up</Link></p>
