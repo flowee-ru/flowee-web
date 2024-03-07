@@ -40,11 +40,11 @@ export default async function User({ params }: { params: { username: string } })
 
   return (
     <main className="container flex flex-col xl:flex-row justify-center py-5 gap-3">
-      <section className="grid gap-3">
+      <section className="container grid gap-3">
         {user.live ? (
           <LivePlayer url={user.live.url} />
         ) : (
-          <div className="grid justify-center items-center aspect-video bg-neutral-800 rounded">
+          <div className="grid justify-center items-center aspect-video w-full bg-neutral-800 rounded-lg">
             <p className="font-semibold">{user.username} is not live</p>
           </div>
         )}
