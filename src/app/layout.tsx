@@ -24,12 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-neutral-900 text-white ${inter.className}`}>
         <header>
-          <div className="flex items-center justify-between px-10 py-3">
+          <div className="container flex items-center justify-between py-3">
             <Link href="/">
               <Image src="/logo.svg" alt="Flowee Logo" width={50} height={50} />
             </Link>
             {username ? (
-              <Link href={`/${username}`}>
+              <Link href={`/u/${username}`}>
                 <Button>{username}</Button>
               </Link>
             ) : (

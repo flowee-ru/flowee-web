@@ -34,7 +34,7 @@ export async function signUp(prevState: any, formData: FormData) {
   cookieStore.set('access', user.tokens.access);
   cookieStore.set('refresh', user.tokens.refresh);
 
-  return redirect(`/${user.username}`);
+  return redirect(`/u/${user.username}`);
 }
 
 export async function signIn(prevState: any, formData: FormData) {
@@ -66,5 +66,5 @@ export async function signIn(prevState: any, formData: FormData) {
   cookieStore.set('access', user.access);
   cookieStore.set('refresh', user.refresh);
 
-  return redirect(`/${body.username}`);
+  return redirect(`/u/${body.username}`);
 }
