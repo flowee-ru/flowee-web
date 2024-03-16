@@ -7,7 +7,7 @@ import moment from "moment";
 export function generateMetadata({ params }: { params: { username: string } }) {
   return {
     title: params.username + " - Flowee",
-    description: `@${params.username}'s profile page on Flowee!`,
+    description: `${params.username}'s profile page on Flowee!`,
   }
 }
 
@@ -27,7 +27,7 @@ async function getUser(username: string) {
   }
 }
 
-export default async function User({ params }: { params: { username: string } }) {
+export default async function Profile({ params }: { params: { username: string } }) {
   const user = await getUser(params.username);
 
   if (!user) {
@@ -45,7 +45,7 @@ export default async function User({ params }: { params: { username: string } })
           <LivePlayer url={user.live.url} />
         ) : (
           <div className="grid justify-center items-center aspect-video w-full bg-neutral-800 rounded-lg">
-            <p className="font-semibold">{user.username} is not live</p>
+            <p className="font-semibold">{user.username} is offline</p>
           </div>
         )}
         {user.live && (
