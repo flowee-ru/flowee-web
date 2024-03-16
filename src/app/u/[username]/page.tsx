@@ -49,7 +49,7 @@ export default async function Profile({ params }: { params: { username: string }
           </div>
         )}
         {user.live && (
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-3 items-center m-2">
             {user.live_name && <h1 className="font-semibold text-xl">{user.live_name}</h1>}
             <div className="flex gap-3 items-center ms-auto text-sm text-neutral-400 font-medium">
               <span>{moment(user.live.ready_time).fromNow()}</span>
@@ -65,6 +65,9 @@ export default async function Profile({ params }: { params: { username: string }
           )}
           {user.bio && <p>{user.bio}</p>}
         </div>
+      </section>
+      <section className="container w-full xl:w-1/3 h-[600px] xl:h-auto rounded-lg bg-neutral-800">
+
       </section>
     </main>
   )

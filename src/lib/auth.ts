@@ -1,16 +1,16 @@
-import { jwtDecode } from "jwt-decode";
 import { cookies } from "next/headers";
+import { jwtDecode } from "jwt-decode";
 import { JwtClaims } from "./types";
 
 export function getUsername() {
   const cookieStore = cookies();
-  const access = cookieStore.get("access");
+  const refresh = cookieStore.get("refresh");
 
-  if (!access) {
+  if (!refresh) {
     return null;
   }
 
-  return jwtDecode<JwtClaims>(access.value).username;
+  return jwtDecode<JwtClaims>(refresh.value).username;
 }
 
 export async function fetchWithAuth(url: string, options: RequestInit = {}) {

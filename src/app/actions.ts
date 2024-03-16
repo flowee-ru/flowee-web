@@ -63,8 +63,14 @@ export async function signIn(prevState: any, formData: FormData) {
   const user = await response.json();
 
   const cookieStore = cookies();
-  cookieStore.set("access", user.access);
-  cookieStore.set("refresh", user.refresh);
+  cookieStore.set("access", user.access, {
+    maxAge: 60 * 60 * 24 * 30,
+    httpOnly: true,
+  });
+  cookieStore.set("refresh", user.refresh, {
+    maxAge: 60 * 60 * 24 * 30,
+    httpOnly: true,
+  });
 
   return redirect(`/u/${body.username}`);
 }
